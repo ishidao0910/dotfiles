@@ -18,7 +18,7 @@ unset __conda_setup
 # display color 
 export CLICOLOR=1 
 
-# 色を使用出来るようにする
+# make color usable
 autoload -Uz colors
 colors
 
@@ -29,6 +29,7 @@ PROMPT="%{${fg[blue]}%}%n:%{${reset_color}%} %c/ %# "
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=1000
+
 # setopt extended_history
 alias history='history -t "%F %T"'
 
@@ -37,7 +38,6 @@ setopt share_history
 
 # 同じコマンドをヒストリに残さない
 setopt hist_ignore_all_dups
-
 
 # 出力の後に改行を入れる
 function add_line {
@@ -48,7 +48,6 @@ function add_line {
   fi
 }
 PROMPT_COMMAND='add_line'
-
 
 # 補完機能を有効にする
 autoload -Uz compinit
@@ -64,21 +63,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # git branchのsetting
 # setopt PROMPT_SUBST
 
-
-
-###################################################
-#Retty tunnel settings
+# Go path
 export GOPATH="$HOME/go"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
-
 # direnv settings
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
-
-### ruby env ###
-# Homebrew
+# homebrew env for ruby env
 export PATH=/opt/homebrew/bin:$PATH
 export PATH="/opt/homebrew/sbin:$PATH"
 
